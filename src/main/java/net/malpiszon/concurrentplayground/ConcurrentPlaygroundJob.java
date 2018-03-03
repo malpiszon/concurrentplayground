@@ -1,4 +1,4 @@
-package net.malpiszon.dodaxjobs;
+package net.malpiszon.concurrentplayground;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 /**
  * Job which runs list of IJobs in parallel. Uses observer pattern to pass the exception.
  */
-public class DodaxJob implements IJob {
+public class ConcurrentPlaygroundJob implements IJob {
 
     private final List<Callable<Void>> jobsToExecute = new ArrayList<>();
     private ExecutorService executorService;
@@ -20,7 +20,7 @@ public class DodaxJob implements IJob {
      * @param numberOfJobs number of jobs to run in parallel
      * @param listener observer to be informed when exception occurs
      */
-    public DodaxJob(List<IJob> jobsToExecute, int numberOfJobs, IJobListener listener) {
+    public ConcurrentPlaygroundJob(List<IJob> jobsToExecute, int numberOfJobs, IJobListener listener) {
         if (jobsToExecute == null || numberOfJobs < 1 || listener == null) {
             throw new IllegalArgumentException();
         }
